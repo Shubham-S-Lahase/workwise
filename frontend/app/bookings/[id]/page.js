@@ -18,7 +18,7 @@ export default function BookingDetails() {
       const fetchDetails = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8080/api/seats/booked-seats/${id}`,
+            `https://workwise-l26d.onrender.com/api/seats/booked-seats/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${user.token}`,

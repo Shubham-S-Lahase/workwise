@@ -27,7 +27,7 @@ export default function BookingBox({ fetchData }) {
     setProcessing(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/seats/book",
+        "https://workwise-l26d.onrender.com/api/seats/book",
         {
           numOfSeats: parseInt(numberOfSeat),
           user_id: user.id,
@@ -70,7 +70,7 @@ export default function BookingBox({ fetchData }) {
     setProcessing(true);
     try {
       await axios.post(
-        'http://localhost:8080/api/seats/reset',
+        'https://workwise-l26d.onrender.com/api/seats/reset',
         {},
         {
           headers: {
