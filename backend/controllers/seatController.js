@@ -55,7 +55,8 @@ const bookingController = async (req, res) => {
 
           return res.status(200).json({
             message: "Seats booked successfully in the last row.",
-            seats: bookedSeats.map((seat) => seat.seat_number),
+            seats: bookedSeats.map((seat) => seat.seat.id),
+            user_id: user_id,
           });
         }
       } else if (availableInRow >= numOfSeats) {
@@ -75,7 +76,8 @@ const bookingController = async (req, res) => {
 
         return res.status(200).json({
           message: "Seats booked successfully in the same row.",
-          seats: bookedSeats.map((seat) => seat.seat_number),
+          seats: bookedSeats.map((seat) => seat.id),
+          user_id: user_id,
         });
       }
     }
@@ -103,7 +105,8 @@ const bookingController = async (req, res) => {
 
       return res.status(200).json({
         message: "Seats booked successfully in nearby rows.",
-        seats: finalSeats.map((seat) => seat.seat_number),
+        seats: finalSeats.map((seat) => seat.id),
+        user_id: user_id,
       });
     }
 
@@ -150,11 +153,11 @@ const getBookedSeats = async (req, res) => {
   try {
     // Get all seats booked by the specified user, with seat details
     const bookedSeats = await sql`
-      SELECT seat_number, row_number FROM seats WHERE user_id = ${user_id} AND is_booked = true ORDER BY row_number, seat_number
+      SELECT id, row_number FROM seats WHERE user_id = ${user_id} AND is_booked = true ORDER BY row_number, seat_number
     `;
 
     if (bookedSeats.length === 0) {
-      return res.status(404).json({ message: "No seats booked by this user." });
+      return res.status(200).json({ message: "No seats booked by this user." });
     }
 
     return res.status(200).json({

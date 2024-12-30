@@ -62,7 +62,7 @@ const loginController = async (req, res) => {
     }
 
     const token = generateToken({ id: user[0].id, role: user[0].role });
-    res.status(200).json({ token, role: user[0].role });
+    res.status(200).json({ token, id: user[0].id, role: user[0].role,  username: user[0].username, });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error." });
