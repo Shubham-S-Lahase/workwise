@@ -21,7 +21,7 @@ export default function Coach({ data, loading }) {
           </div>
 
           {/* Render Seat Grid */}
-          <div className="grid grid-cols-5 sm:grid-cols-7 gap-2 bg-gray-100 p-4 rounded-lg">
+          <div className="grid grid-cols-7 sm:grid-cols-7 gap-2 bg-gray-100 p-4 rounded-lg">
             {data.map((seat) => (
               <Seat
                 key={seat.id}

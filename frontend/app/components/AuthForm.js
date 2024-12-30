@@ -67,6 +67,7 @@ export default function AuthForm({ isLogin, onSuccess }) {
         type="text"
         placeholder="Username"
         value={username}
+        required
         onChange={(e) => setUsername(e.target.value)}
         style={{
           padding: "0.5rem",
@@ -81,6 +82,7 @@ export default function AuthForm({ isLogin, onSuccess }) {
         <input
           type="email"
           placeholder="Email"
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           style={{
@@ -95,6 +97,7 @@ export default function AuthForm({ isLogin, onSuccess }) {
       <input
         type="password"
         placeholder="Password"
+        required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         style={{

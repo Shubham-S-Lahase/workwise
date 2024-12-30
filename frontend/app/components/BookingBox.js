@@ -109,6 +109,7 @@ export default function BookingBox({ fetchData }) {
       <input
         type="number"
         placeholder="Enter number of seats"
+        required
         value={numberOfSeat}
         onChange={(e) => setNumberOfSeat(e.target.value)}
         disabled={processing}
