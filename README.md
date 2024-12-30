@@ -1,65 +1,63 @@
-Installation
-Follow these steps to set up the project locally.
+● Installation
+  Follow these steps to set up the project locally.
 
-Prerequisites
-Ensure you have the following installed on your system:
+◉ Prerequisites ◉
+● Ensure you have the following installed on your system:
 
-Node.js (version >= 18.x)
-npm or yarn for package management
+• Node.js (version >= 18.x)
+• npm or yarn for package management
+• PostgreSQL Supabase Database
 
-PostgreSQL Supabase Database
+◉ Clone the repository
+    git clone https://github.com/your-username/seat-booking-system.git
+    cd seat-booking-system
 
-Clone the repository
-git clone https://github.com/your-username/seat-booking-system.git
-cd seat-booking-system
-
-Install dependencies
+◉ Install dependencies
 For both the frontend and backend, install the necessary dependencies:
-Backend (Node.js v >= 18.x)
+● Backend (Node.js v >= 18.x)
     cd backend
     npm install
-Frontend (Nextjs v >= 15.x)
+● Frontend (Nextjs v >= 15.x)
     cd frontend
     npm install
 
 
-Configure Environment Variables
-Create a .env file in the root of the backend folder and add the following:
-    DATABASE_URL= your-supabase-database-url use session pooler connection string for ipv4 support
-    PORT=8080
-    JWT_SECRET= your-JWT-secret
+◉ Configure Environment Variables
+● Create a .env file in the root of the backend folder and add the following:
+    • DATABASE_URL= your-supabase-database-url use session pooler connection string for ipv4 support
+    • PORT=8080
+    • JWT_SECRET= your-JWT-secret
 
 
-Running the Project
-To run the project, start both the backend and frontend servers:
-Backend
-    cd backend
-    npm run dev
+◉ Running the Project
+● To run the project, start both the backend and frontend servers:
+    Backend
+        cd backend
+        npm run dev
+    Frontend
+        cd frontend
+        npm run dev
 
-Frontend
-    cd frontend
-    npm run dev
-
-Technologies
-Frontend: React/Nextjs, TailwindCSS, Axios
-Backend: Node.js, Express.js, PostgreSQL
-Authentication: JWT (JSON Web Tokens)
+◉ Technologies
+    ● Frontend: React/Nextjs, TailwindCSS, Axios
+    ● Backend: Node.js, Express.js, PostgreSQL
+    ● Authentication: JWT (JSON Web Tokens)
 
 
-Features
-User Signup: Users can sign up with their username, email and password.
-User Login: Users can log in to book seats and view their bookings.
-Seat Booking: Users can book up to 7 seats at a time.
-View Bookings: Users can view their booked seats.
-Reset Bookings: Admin users can reset all bookings.
-Responsive UI: The app is mobile-friendly and has a clean, modern design.
+◉ Features
+● User Signup: Users can sign up with their username, email and password.
+● User Login: Users can log in to book seats and view their bookings.
+● Seat Booking: Users can book up to 7 seats at a time.
+● View Bookings: Users can view their booked seats.
+● Reset Bookings: Admin users can reset all bookings. [username: admin, password: admin@123]
+● Responsive UI: The app is mobile-friendly and has a clean, modern design.
 
-API Documentation
+◉ API Documentation
 Base URL
 http://localhost:8080/api
 
-Users
-POST /users/signup
+● Users
+ • POST /users/signup
 Signup with username, email and password.
 
 Request Body:
@@ -74,7 +72,7 @@ Response:
         "message": "User registered successfully."
     }
 
-POST /users/login
+• POST /users/login
 Login user with email and password.
 
 Request Body:
@@ -91,10 +89,10 @@ Response:
         "email": "user@example.com",
         "role": "user/admin"
     }
+    
 
-Seats
-
-POST /seats/book
+● Seats
+• POST /seats/book
 Description:
 Allows authenticated users to book a specified number of seats.
 
@@ -131,7 +129,7 @@ Response (Error - Internal server):
          "message": "Internal Server Error."
     }
 
-GET /seats/seats
+• GET /seats/seats
 Description:
 Retrieves all available seats ordered by row and seat number. This endpoint is open to all users.
 
@@ -154,7 +152,7 @@ Response (Success):
     }
 
 
-GET /seats/booked-seats/:user_id
+• GET /seats/booked-seats/:user_id
 Description:
 Fetches all seats booked by a specific user. Only authenticated users can access this endpoint.
 
@@ -184,7 +182,7 @@ Response (No bookings):
          "message": "No seats booked by this user."
     }
 
-POST /seats/reset
+• POST /seats/reset
 Description:
 Allows admins to reset all seat bookings and mark all seats as available.
 
