@@ -26,6 +26,12 @@ const Navbar = () => {
   // Function to toggle dropdown visibility
   const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
+   // Logout and reload the page
+   const handleLogout = () => {
+    logout();
+    router.reload(); // Reload the page to reset state
+  };
+
   return (
     <nav className="bg-blue-600 fixed w-full top-0 left-0 z-50 p-4 shadow-md">
       <div className="flex justify-between items-center">
@@ -35,10 +41,7 @@ const Navbar = () => {
             <>
               <span className="text-white">Welcome, {user.username}!</span>
               <button
-                onClick={() => {
-                  logout();
-                  router.push("/");
-                }}
+                onClick={handleLogout}
                 className="text-white bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600"
               >
                 Logout
@@ -76,10 +79,7 @@ const Navbar = () => {
                 <>
                   <span className="block px-4 py-2 text-gray-800">Welcome, {user.username}!</span>
                   <button
-                    onClick={() => {
-                      logout();
-                      router.push("/");
-                    }}
+                    onClick={handleLogout}
                     className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-200"
                   >
                     Logout
