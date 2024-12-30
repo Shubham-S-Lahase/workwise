@@ -199,6 +199,7 @@ Response (Error - Unauthorized):
         "message": "Access denied. Admin privileges required."
     }
 
-Notes
+Notes:
 Ensure the database is properly initialized with is_booked set to false for all seats initially.
+
 
