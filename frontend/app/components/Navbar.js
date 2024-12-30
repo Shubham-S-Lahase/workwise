@@ -29,7 +29,7 @@ const Navbar = () => {
    // Logout and reload the page
    const handleLogout = () => {
     logout();
-    router.reload(); // Reload the page to reset state
+    window.location.reload(); // Reload the page to reset state
   };
 
   return (
