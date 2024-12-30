@@ -12,7 +12,7 @@ export default function Home() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8080/api/seats/seats");
+      const response = await axios.get("https://workwise-l26d.onrender.com/api/seats/seats");
       setData(response.data.availableSeats);
     } catch (error) {
       console.error("Error fetching seats:", error);

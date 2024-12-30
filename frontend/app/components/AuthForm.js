@@ -15,8 +15,8 @@ export default function AuthForm({ isLogin, onSuccess }) {
     setLoading(true);
     try {
       const endpoint = isLogin
-        ? "http://localhost:8080/api/users/login"
-        : "http://localhost:8080/api/users/signup";
+        ? "https://workwise-l26d.onrender.com/api/users/login"
+        : "https://workwise-l26d.onrender.com/api/users/signup";
       
       const payload = isLogin
         ? { username, password }
